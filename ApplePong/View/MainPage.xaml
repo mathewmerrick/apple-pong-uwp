@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="ApplePong.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ApplePong"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Name="BaseGrid" Background="#FF3F9542">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width=".8*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions> 
+        
+        <Viewbox Name="FieldViewBox" Grid.Row="1" Grid.Column="1" Stretch="Uniform">
+            <Grid Name="Field" Width="3840" Height="2160" Background="#FF1C6B28" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                    <ColumnDefinition Width=".9*"></ColumnDefinition>
+                    <ColumnDefinition Width="0.05*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+ 
+                    <Rectangle Name ="LeftPaddle" Grid.Column="0" Grid.Row="0" Width="192" Height="720" Fill="Blue" 
+                        ManipulationDelta="LeftPaddle_ManipulationDelta" ManipulationMode="All">
+                        <Rectangle.RenderTransform>
+                            <TranslateTransform x:Name="leftPaddleDragTranslation" />
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+
+                <Rectangle Name="RightPaddle" Grid.Column="2" Width="192" Height="720" Fill="Red" 
+                        ManipulationDelta="RightPaddle_ManipulationDelta" ManipulationMode="All">
+                    <Rectangle.RenderTransform>
+                        <TranslateTransform x:Name="rightPaddleDragTranslation" />
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+
+            </Grid>
+
+        </Viewbox>
+
+    </Grid>
+</Page>
